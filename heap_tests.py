@@ -63,7 +63,14 @@ class TestHeap(unittest.TestCase):
         test_heap = MaxHeap()
         list1 = [2, 9, 7, 6, 5, 8]
         test_heap.heap_sort_ascending(list1)
-        self.assertEqual(test_heap, [2, 5, 6, 7, 8, 9])
+        self.assertEqual(list1, [2, 5, 6, 7, 8, 9])
+
+    def test_12_get_heap_cap(self):
+        test_heap = MaxHeap(6)
+        test_heap.build_heap([2, 9, 7, 6, 5, 8])
+        insert = test_heap.enqueue(10)
+        self.assertFalse(insert)
+        self.assertEqual(test_heap.get_capacity(), 6)
 
 
 if __name__ == "__main__":
