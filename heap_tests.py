@@ -30,6 +30,8 @@ class TestHeap(unittest.TestCase):
     def test_05_is_empty(self):
         test_heap = MaxHeap(5)
         self.assertTrue(test_heap.is_empty())
+        self.assertEqual(test_heap.peek(), None)
+        self.assertEqual(test_heap.dequeue(), None)
 
     def test_06_is_full(self):
         test_heap = MaxHeap(5)
@@ -72,6 +74,14 @@ class TestHeap(unittest.TestCase):
         self.assertFalse(insert)
         self.assertEqual(test_heap.get_capacity(), 6)
 
+    def test_13_get_heap_cap(self):
+        test_heap = MaxHeap(5)
+        test_heap.build_heap([4, 9, 7, 6, 5, 8])
+        insert = test_heap.enqueue(10)
+        self.assertFalse(insert)
+        self.assertEqual(test_heap.get_capacity(), 6)
+        self.assertEqual(test_heap.get_size(), 6)
+        self.assertEqual(test_heap.peek(), 9)
 
 if __name__ == "__main__":
     unittest.main()

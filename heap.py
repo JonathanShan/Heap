@@ -12,7 +12,7 @@ class MaxHeap:
         If the capacity of the current heap is less than the number of 
         items in alist, the capacity of the heap will be increased"""
         if self.capacity < len(alist):
-            self.heap = self.heap + [None]*len(alist) - self.capacity
+            self.heap = self.heap + [None]*(len(alist) - self.capacity)
             self.capacity = len(alist)
         for i in range(len(alist)):
             self.heap[i+1] = alist[i]
