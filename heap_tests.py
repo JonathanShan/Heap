@@ -77,11 +77,15 @@ class TestHeap(unittest.TestCase):
     def test_13_get_heap_cap(self):
         test_heap = MaxHeap(5)
         test_heap.build_heap([4, 9, 7, 6, 5, 8])
-        insert = test_heap.enqueue(10)
-        self.assertFalse(insert)
         self.assertEqual(test_heap.get_capacity(), 6)
         self.assertEqual(test_heap.get_size(), 6)
         self.assertEqual(test_heap.peek(), 9)
+
+    def test_14_get_heap_cap(self):
+        test_heap = MaxHeap()
+        test_heap.build_heap([0, 0, 1, 2, 3, 4])
+        self.assertEqual(test_heap.get_capacity(), 50)
+        self.assertEqual(test_heap.contents(), [4, 3, 1, 2, 0, 0])
 
 if __name__ == "__main__":
     unittest.main()
